@@ -1,0 +1,17 @@
+{
+	"name": "zxcvbn-server",
+	"version": "0.7.0",
+	"description": "A microservice wrapper around the zxcvbn password strength estimator.",
+	"repository": "https://github.com/shelv-es/zxcvbn-server",
+	"scripts": {
+		"start": "node app.js",
+		"monitor": "nodemon app.js"
+	},
+	"author": "Erik Beeson <erik.beeson@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"body-parser": "^1.14.1",
+		"express": "^4.13.3",
+		"zxcvbn": "^4.0.1"
+	}
+}
