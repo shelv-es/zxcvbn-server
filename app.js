@@ -10,13 +10,20 @@ app.disable('x-powered-by');
 app.disable('etag');
 
 app.use(bodyParser.text({ type: 'text/password' }));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+var passwordStrength = function(password) {
+	var result = zxcvbn(password);
+	delete result['password'];
+	delete result['sequence'];
+	return result;
+};
 
 app.post('/zxcvbn', function(req, res) {
 	if(req.is('text/password') && req.body) {
-		var result = zxcvbn(req.body);
-		delete result['password'];
-		delete result['sequence'];
-		res.json(result);
+		res.json(passwordStrength(req.body));
+	} else if(req.body && req.body.password) {
+		res.json(passwordStrength(req.body.password));
 	} else {
 		res.sendStatus(400);
 	}

@@ -37,9 +37,21 @@ Clone this repo, install dependencies (`npm install`), run in the usual ways (`n
 
 ## Usage
 
-To use, send an HTTP POST to `https://.../zxcvbn` with `Content-Type: text/password` and the password to check in the body of the request.
+To use, send an HTTP POST to `https://.../zxcvbn`.
 
 *Be sure to only host this service over SSL (or similarly secure channel). These are passwords being sent over the wire here; treat them with care.*
+
+Multiple input formats are supported:
+
+### With `Content-Type: text/password`
+
+Send the password to check in the body of the request.
+
+### With `Content-Type: application/x-www-form-urlencoded`
+
+Send the password to check in a field called `password` (as in a usual [form submission](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_and_retrieving_form_data)).
+
+### Response
 
 You'll recieve a response of type `application/json` of the form:
 
