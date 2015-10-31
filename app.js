@@ -11,6 +11,7 @@ app.disable('etag');
 
 app.use(bodyParser.text({ type: 'text/password' }));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 var passwordStrength = function(password) {
 	var result = zxcvbn(password);
