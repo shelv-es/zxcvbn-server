@@ -78,7 +78,7 @@ You'll recieve a response of type `application/json` of the form:
 
 The response differs slightly from the result object documented at [dropbox/zxcvbn#usage](https://github.com/dropbox/zxcvbn#usage).
 
-The documented fields `feedback` and `suggestions` don't actually seem to exist, so they probably aren't included. The field `sequence` is stripped as it is quite verbose and probably not very useful for the purposes of this service. The undocumented field `password`, which echoes back the supplied password, is stripped from the response.
+The field `sequence` is stripped as it is quite verbose and probably not very useful for the purposes of this service. The undocumented field `password`, which echoes back the supplied password, is stripped from the response.
 
 
 ## Public `zxcvbn-server`
