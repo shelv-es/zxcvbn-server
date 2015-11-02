@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var passwordStrength = function(password) {
-	var result = zxcvbn(password);
+	var result = zxcvbn(password.slice(0, 100));
 	delete result['password'];
 	delete result['sequence'];
 	return result;
