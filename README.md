@@ -51,28 +51,38 @@ Send the password to check in the body of the request.
 
 Send the password to check in a field called `password` (as in a usual [form submission](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_and_retrieving_form_data)).
 
+### With `Content-Type: application/json`
+
+Send a JSON object with the password to check in a field called `password`.
+
 ### Response
 
 You'll recieve a response of type `application/json` of the form:
 
 ```json
 {
-	"guesses": 35,
-	"guesses_log10": 1.5440680443502754,
-	"calc_time": 0,
-	"crack_times_seconds": {
-		"online_throttling_100_per_hour": 1260,
-		"online_no_throttling_10_per_second": 0.35,
-		"offline_slow_hashing_1e4_per_second": 0.0035,
-		"offline_fast_hashing_1e10_per_second": 3.5e-9
+	"guesses": 273,
+	"guesses_log10": 2.436162647040756,
+	"calc_time": 16,
+	"crack_times_seconds": {  
+		"online_throttling_100_per_hour": 9828,
+		"online_no_throttling_10_per_second": 2.73,
+		"offline_slow_hashing_1e4_per_second": 0.0273,
+		"offline_fast_hashing_1e10_per_second": 2.73e-8
 	},
-	"crack_times_display": {
-		"online_throttling_100_per_hour": "21 minutes",
-		"online_no_throttling_10_per_second": "subsecond",
-		"offline_slow_hashing_1e4_per_second": "subsecond",
-		"offline_fast_hashing_1e10_per_second": "subsecond"
+	"crack_times_display": {  
+		"online_throttling_100_per_hour": "3 hours",
+		"online_no_throttling_10_per_second": "3 seconds",
+		"offline_slow_hashing_1e4_per_second": "less than a second",
+		"offline_fast_hashing_1e10_per_second": "less than a second"
 	},
-	"score": 0
+	"score": 0,
+	"feedback": {  
+		"warning": "This is a very common password",
+		"suggestions": [  
+			"Add another word or two. Uncommon words are better."
+		]
+	}
 }
 ```
 
